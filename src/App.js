@@ -1,12 +1,13 @@
 import './App.css';
 import { useQuery } from 'react-query';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [checkedValue, setCheckedValue] = useState('');
   const [filteredItem, setFilteredItem] = useState('');
+  const [deletedItems, setDeletedItems] = useState(JSON.parse(localStorage.getItem('deleteItems')));
 
-  const { data: products, refetch } = useQuery('products', () => fetch('./products.json').then(res => res.json()));
+  const { data: products } = useQuery('products', () => fetch('./products.json').then(res => res.json()));
 
   const handleChange = (event) => {
     if (event.target.checked) {
@@ -21,7 +22,22 @@ function App() {
     }
   };
 
-  const filteredProducts = filteredItem === 'year' ? products?.filter(product => product.year.toLowerCase()?.includes(checkedValue?.toLowerCase())) : products?.filter(product => product.category.toLowerCase()?.includes(checkedValue?.toLowerCase()));
+  const handleDeleteProduct = (productName) => {
+
+    if (localStorage.getItem('deleteItems') == null) {
+      localStorage.setItem('deleteItems', '[]');
+    }
+
+    const oldData = JSON.parse(localStorage.getItem('deleteItems'));
+    const newData = [...oldData, productName];
+    setDeletedItems(newData);
+
+    localStorage.setItem('deleteItems', JSON.stringify(newData));
+  };
+
+  const filteredProducts = filteredItem === 'year' ? products.filter(product => product.year.toLowerCase()?.includes(checkedValue?.toLowerCase())) : products?.filter(product => product.category.toLowerCase()?.includes(checkedValue?.toLowerCase()));
+
+  const separateDeletedProducts = filteredProducts?.filter(product => !deletedItems?.includes(product.name));
 
   return (
     <section className='App'>
@@ -48,7 +64,7 @@ function App() {
           <div className=''>
             <div className='grid grid-cols-2 gap-y-12'>
               {
-                filteredProducts?.map((product, index) =>
+                separateDeletedProducts?.map((product, index) =>
                   <div className="card w-96 bg-base-100 shadow-xl" key={index}>
                     <figure><img src={product.image} alt={`shoes${index + 1}`} /></figure>
                     <div className="card-body">
@@ -64,6 +80,7 @@ function App() {
                       </div>
                       <div className="card-actions">
                         <button className="btn btn-sm btn-outline btn-error"
+                          onClick={() => handleDeleteProduct(product.name)}
                         >
                           Delete
                         </button>
