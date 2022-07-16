@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Product 1",
+        "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Ultraboost_22_Shoes_Black_GZ0127_01_standard.jpg",
+        "category": "shoes",
+        "brand": "rebook",
+        "size": "large",
+        "price": "1000",
+        "year": "2021"
+    },
+    {
+        "name": "Product 2",
+        "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2cee64414e1f4f31baf1ae270099d950_9366/Lunar_New_Year_Ultraboost_DNA_Shoes_Black_GZ6074_01_standard.jpg",
+        "category": "shoes",
+        "brand": "nike",
+        "size": "medium",
+        "price": "1000",
+        "year": "2023"
+    },
+    {
+        "name": "Product 3",
+        "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/69cbc73d0cb846889f89acbb011e68cb_9366/Supernova_Shoes_Black_S42722_01_standard.jpg",
+        "category": "shirt",
+        "brand": "nike",
+        "size": "large",
+        "price": "1000",
+        "year": "2020"
+    },
+    {
+        "name": "Product 4",
+        "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/96a5f085fedf4e678095abad01056711_9366/Lite_Racer_Adapt_3.0_Shoes_Black_FX8802_01_standard.jpg",
+        "category": "jacket",
+        "brand": "rebook",
+        "size": "small",
+        "price": "1000",
+        "year": "2020"
+    },
+    {
+        "name": "Product 5",
+        "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8c5d1994dfd343e28567ad4400dd351d_9366/4DFWD_Shoes_Black_Q46447_01_standard.jpg",
+        "category": "shoes",
+        "brand": "rebook",
+        "size": "large",
+        "price": "1000",
+        "year": "2020"
+    }
+]
